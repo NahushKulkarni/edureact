@@ -2,6 +2,12 @@
 
 ##### Project Setup
 
+NOTE: After running any ``` pip install [package] ``` command please update requirements.txt
+
+```
+pip freeze > requirements.txt
+```
+
 1. Clone this repository
 ```
 git clone https://github.com/ssameermah/edureact.git
