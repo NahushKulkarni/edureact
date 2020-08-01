@@ -8,4 +8,4 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 class VideoViewSet(viewsets.ModelViewSet):
     queryset = Video.objects.all()
-    serializer_class = VideoSerializer
+    serializer_class = VideoSerializer 
