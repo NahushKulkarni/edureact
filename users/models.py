@@ -18,7 +18,7 @@ class Student(AbstractUser):
 
 class Teacher(models.Model):
     user = models.OneToOneField(Student, on_delete=models.CASCADE)
-    course_uploaded = models.ForeignKey('courses.Course',default="None",max_length=100,on_delete=models.CASCADE)
+    course_uploaded = models.CharField(max_length=100)
     
 
     def __str__(self):
