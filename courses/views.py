@@ -9,3 +9,9 @@ def VideoView(request):
         'videos':Video.objects.all()
     }
     return render(request,"courses/videos.html",context)
+
+def CoursesView(request):
+    context={
+        'courses':Course.objects.all()
+    }
+    return render(request,"courses/courses.html",context)

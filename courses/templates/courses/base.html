@@ -22,7 +22,7 @@
 		transform: scale(1.1); 
 	}
     .transparent{
-		opacity:0.9;
+		opacity:0.7;
 	}
     a{
 		color:#BBBBBB;
@@ -43,6 +43,13 @@
 		background-size: cover;
 		padding:0px;
 	}
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
 </style>
 <body class="parallax text-light">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark rounded-bottom transparent">
@@ -54,10 +61,10 @@
             </ul>
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto zoom" href="/home">Edureact</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand mx-auto zoom" href="/home">Edureact</a>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
@@ -67,14 +74,13 @@
             </ul>
         </div>
     </nav>
-    </header>
     <br>
     <main role="main" class="container-fluid">
         {% block content %}{% endblock %}
     </main>
     <br>
     <footer>
-        <ul class="nav justify-content-center bg-dark rounded-top transparent text-light" style="position: absolute; bottom: 0px; width:100%;">
+        <ul class="nav justify-content-center bg-dark rounded-top transparent text-light">
             <li class="nav-item">
                 <a class="nav-link"><b>Edureact - By Sameer Mahajan, Adwait Patil and Nahush Kulkarni<b></a>
             </li>
