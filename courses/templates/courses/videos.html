@@ -1,0 +1,12 @@
+{% extends "courses/base.html" %}
+{% block content %}
+    <p>Hello</p>
+    {% for video in videos %}
+      <iframe src="{{video.video_file.url}}" style="height: 50%; width: 50%"></iframe>
+      <h2>{{video.video_title}}<h2>
+      <h6>{{video.created_at}}<h6>
+      <div class="alert alert-secondary transparent">
+        {{video.notes}}
+      </div>
+    {% endfor %}
+{% endblock content %}

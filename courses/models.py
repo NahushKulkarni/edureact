@@ -6,7 +6,7 @@ from PIL import Image
 # Create your models here.
 
 class Course(models.Model):
-    course_name = models.CharField(max_length=300)
+    course_name = models.CharField(max_length=300,default=f"course")
     instructor = models.ForeignKey('users.Teacher', on_delete=models.CASCADE,default=0)
     created_at = models.DateTimeField(default=timezone.now)
     course_image = models.ImageField(default="default.jpg",upload_to="course_pics")
