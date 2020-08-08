@@ -6,7 +6,7 @@ from PIL import Image
 # Create your models here.
 
 class Course(models.Model):
-    course_name = models.CharField(max_length=300,default=f"course")
+    course_name = models.CharField(unique=True,max_length=300,default=f"course")
     instructor = models.ForeignKey('users.Teacher', on_delete=models.CASCADE,default=0)
     created_at = models.DateTimeField(default=timezone.now)
     course_image = models.ImageField(default="default.jpg",upload_to="course_pics")
@@ -16,10 +16,10 @@ class Course(models.Model):
 
 class Subscription(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
-    subsribed_by = models.ForeignKey('users.Student',on_delete=models.CASCADE,default=0)
+    subsribed_by = models.CharField(max_length=100,default=0)
 
     def __str__(self):
-        return f"{self.course} subscribed by {self.subscribed_by}"
+        return self.subsribed_by
 
 class Video(models.Model):
     video_title = models.CharField(max_length=200)

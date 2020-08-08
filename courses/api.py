@@ -12,4 +12,4 @@ class VideoViewSet(viewsets.ModelViewSet):
 
 class SubscriptionViewset(viewsets.ReadOnlyModelViewSet):
     queryset = Subscription.objects.all()
-    serializer_class = SubscribtionSerializer
+    serializer_class = SubscribtionSerializer 
