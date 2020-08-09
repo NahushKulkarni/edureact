@@ -2,7 +2,7 @@ from django import forms
 from .models import Student
 from django.contrib.auth.forms import UserCreationForm
 
-
+#test comment
 class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(label='First Name', max_length=100)
     last_name = forms.CharField(label='Last Name', max_length=100)
