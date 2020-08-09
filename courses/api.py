@@ -10,6 +10,6 @@ class VideoViewSet(viewsets.ModelViewSet):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer 
 
-class SubscriptionViewset(viewsets.ReadOnlyModelViewSet):
+class SubscriptionViewset(viewsets.ModelViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscribtionSerializer 
