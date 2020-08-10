@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'crispy_forms',
     'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

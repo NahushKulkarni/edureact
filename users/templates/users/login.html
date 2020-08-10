@@ -1,0 +1,21 @@
+{% extends "courses/base.html" %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+{% block content%}
+<div class="container mt-4">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="">Login</legend>
+      {{form|crispy}}
+    </fieldset>
+  </form>
+  <div class="form-group">
+    <button type="submit" class="btn btn-outline-info">Login</button>
+  </div>
+  <div class="border-top pt-3">
+    <small class="text muted">
+      Already signed up?<a class="ml-2" href="#">Sign up</a>
+    </small>
+  </div>
+</div>
+{% endblock content %}

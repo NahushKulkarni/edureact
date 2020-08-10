@@ -14,6 +14,16 @@ class Student(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height>100 or img.width>100:
+            output_size=(100,100)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
         
 
 class Teacher(models.Model):
