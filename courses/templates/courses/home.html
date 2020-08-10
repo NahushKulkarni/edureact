@@ -1,0 +1,21 @@
+{% extends "courses/base.html" %}
+<!DOCTYPE html>
+{% block content %}
+<!--<div>
+  {% for course in courses%}
+  <h3>Hello {{view.kwargs.username}}</h3>
+  {% endfor %} 
+</div>!-->
+<div class="container">
+  <strong><p style="color: white;">Available courses</p></strong>
+  {% for course in courses %}
+  <div class="box">
+    <img src="{{course.course_image.url }}" />
+    <br />
+    <a href="{% url 'Courses-view' %}"><p>{{course.course_name}}</p></a>
+    <a href="{#}"><p>Taught by-{{course.instructor}}</p></a>
+    <img src="{{course.instructor.user.image.url}}" class="round" />
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

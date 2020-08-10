@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'courses.apps.CoursesConfig',
     'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +131,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
