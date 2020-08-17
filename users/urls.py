@@ -1,6 +1,6 @@
 from .api import StudentViewSet,TeacherViewSet
 from django.urls import path
-from .views import register  
+from .views import register
 from rest_framework import routers
 from django.contrib.auth import views as auth_views
 
