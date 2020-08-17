@@ -13,3 +13,15 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = Student
         fields = ['username', 'first_name','last_name','Email','linkedin','github','password1','password2']
+
+class userupdateform(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = Student
+        fields = ['username','email']
+
+class profileupdateform(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['image']
