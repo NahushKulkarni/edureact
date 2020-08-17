@@ -14,6 +14,16 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
 
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+
+        img = Image.open(self.course_image.path)
+
+        if img.height>170 or img.width>140:
+            output_size=(120,120)
+            img.thumbnail(output_size)
+            img.save(self.course_image.path)
+
 class Subscription(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
     subsribed_by = models.CharField(max_length=100,default=0)
