@@ -1,13 +1,30 @@
 {% extends "courses/base.html" %}
 {% block content %}
-    <div class="container-fluid">
-      {% for video in videos %}
+    <div class="container">
         <center>
-          <div class="embed-responsive embed-responsive-16by9 w-50">
-            <video controls controlsList="nodownload" oncontextmenu="return false;" autoplay>
-              <source class="embed-responsive-item" src="{{video.video_file.url}}" allowfullscreen type="video/mp4">
-              Your browser does not support HTML video.
-            </video>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-10">
+              <div class="embed-responsive embed-responsive-16by9 w-50">
+                <video controls controlsList="nodownload" oncontextmenu="return false;" autoplay>
+                  <source class="embed-responsive-item" src="{{video.video_file.url}}" allowfullscreen type="video/mp4">
+                  Your browser does not support HTML video.
+                </video>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-2">
+              <div class="container-fluid rounded" style="background-color:rgba(50,50,50,0.9);">
+                {% for video in course %}
+                  <div class="container-fluid rounded zoom" style="background-color:rgba(50,50,50,1.0);">
+                    <table>
+                      <tr>
+                        <td><img src="{{video.video_file.url}}" class="rounded" style="height: 50px; width:50px;"></td>
+                        <td><b>{{video.video_title}}</b></td>
+                      </tr>
+                    </table>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
           </div>
         </center>
         <br>
@@ -25,6 +42,5 @@
         </div>
         </div>
         <br>
-      {% endfor %}
     </div>
 {% endblock content %}
