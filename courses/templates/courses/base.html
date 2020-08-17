@@ -76,6 +76,15 @@
     </nav>
     <br>
     <main role="main" class="container-fluid">
+    <div>
+        {% if messages %}
+        {% for message in messages %}
+        <diV class="alert alert-{{message.tags}}" >
+            {{message}}
+        </diV>
+        {% endfor %}
+        {% endif %}
+    </div>
         {% block content %}{% endblock %}
     </main>
     <br>

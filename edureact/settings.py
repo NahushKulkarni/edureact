@@ -33,8 +33,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 INSTALLED_APPS = [
     'corsheaders',
     'courses.apps.CoursesConfig',
-    'users.apps.UsersConfig',
     'crispy_forms',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +133,6 @@ MEDIA_URL = '/media/'
 X_FRAME_OPTIONS = 'ALLOWALL'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL ='home-view'
+LOGIN_URL = 'login'
