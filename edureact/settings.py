@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'crispy_forms',
     'users.apps.UsersConfig',
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,5 +134,7 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'home-view'
+
+LOGIN_REDIRECT_URL ='home-view'
 LOGIN_URL = 'login'
+
