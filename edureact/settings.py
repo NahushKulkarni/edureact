@@ -135,12 +135,5 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-<<<<<<< HEAD
 LOGIN_REDIRECT_URL = 'home-view'
 LOGIN_URL = 'login'
-=======
-
-LOGIN_REDIRECT_URL ='home-view'
-LOGIN_URL = 'login'
-
->>>>>>> 60fc900e11a9effa47cb87acd673c6792021e319

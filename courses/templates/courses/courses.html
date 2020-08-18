@@ -1,15 +1,23 @@
 {% extends "courses/base.html" %}
 {% block content %}
-    <div class="container-fluid">
-      {% for course in courses %}
-        <div class="card zoom" style="width: 18rem; display:inline-block;" onclick="window.location.href = {% url 'video-view' %}+'?C='+{{course.id}}+'&V=1';">
-          <img src="{{course.course_image.url}}" class="card-img-top" alt="ERROR: Cannot retrieve course image!">
-          <div class="card-body">
-            <h5 class="card-title text-dark">{{course.course_name}}</h5>
-            <p class="card-text text-secondary">{{course.instructor}}</p>
-            <p class="card-text"><i>{{course.created_at}}</i></p>
+    <div class="container">
+      <center>
+      <div class="card-deck">
+        <div class="row">
+          {% for course in courses %}
+            <div class="col-sm-4 mb-5">
+              <div class="card text-white bg-dark zoom card-props" onclick="window.location.href = {% url 'video-view' %}+'?C='+{{course.id}}+'&V=1';">
+                <img src="{{course.course_image.url}}" class="card-img-top" alt="ERROR: Cannot retrieve course image!">
+                <div class="card-body">
+                  <h5 class="card-title">{{course.course_name|slice:":25"}}</h5>
+                  <h6 class="card-text">{{course.instructor}}</h6>
+                  <h6 class="card-text"><i>{{course.created_at}}</i></h6>
+                </div>
+              </div>
           </div>
-        </div>
-      {% endfor %}
+          {% endfor %}
+        </row>
+      </div>
+      </center>
     </div>
 {% endblock content %}

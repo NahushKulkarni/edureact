@@ -22,8 +22,16 @@
 		transform: scale(1.1); 
 	}
     .transparent{
-		opacity:0.7;
+		opacity: 0.7;
 	}
+     .card-props{
+		opacity: 0.9;
+	}
+    .card-img-top {
+        width: 100%;
+        height: 15vh;
+        object-fit: cover;
+    }
     a{
 		color:#BBBBBB;
 	}
@@ -43,12 +51,23 @@
 		background-size: cover;
 		padding:0px;
 	}
-    footer {
+    footer{
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
         text-align: center;
+    }
+    body{
+        overflow-x: hidden
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row > div[class*='col-'] {
+    display: flex;
     }
 </style>
 <body class="parallax text-light">
@@ -56,7 +75,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link zoom" href="/courses">Courses</a>
+                    <a class="nav-link zoom" href="{% url 'Courses-view' %}">Courses</a>
                 </li>
             </ul>
         </div>
@@ -64,12 +83,22 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand mx-auto zoom" href="/home">Edureact</a>
+            <a class="navbar-brand mx-auto zoom" href="{% url 'home-view' %}">Edureact</a>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link zoom" href="/login">Login</a>
+                    {% if user.is_authenticated %}
+                        <div class="dropdown zoom">
+                            <a class="nav-item dropdown-toggle" style="cursor: pointer;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user}}</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                                <a class="dropdown-item" href="{% url 'logout'%}">Logout</a>
+                            </div>
+                        </div>
+                    {% else %} 
+                        <a class="nav-item zoom" href="{% url 'login' %}">Login</a>
+                    {% endif %}
                 </li>
             </ul>
         </div>
