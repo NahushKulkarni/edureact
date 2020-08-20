@@ -1,8 +1,10 @@
 #from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
-from django.contrib.auth import login,authenticate
+from .forms import UserRegisterForm,userupdateform , profileupdateform
+from .models import Student, Teacher
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def register(request):
@@ -16,17 +18,29 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
     
-""" def login_view(request):
-    form = UserRegisterForm()
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(request,username=username,password=password)
-    if user is not None:
-        login(request,user)
-        messages.success(request,f"Successfully logged in as {username}")
-        return redirect('home-view')
+@login_required # @ adds functionality to an existing function
+def profile(request):
+    if request.method == 'POST':
+        u_form = userupdateform(request.POST, instance=request.user) #instance to fill the username field by logged in persons username
+        P_form = profileupdateform(request.POST,
+         request.FILES, 
+         instance=request.user)
+
+        if u_form.is_valid() and P_form.is_valid():
+            u_form.save()
+            P_form.save()
+            messages.success(request, f'Your account has been updated:')
+            return redirect('profile')
     else:
-        messages.error(request,f"Incorrect password or username")
-    return render(request,'users/login.html',{'form':form})
- """    
+        u_form = userupdateform(instance=request.user) #instance to fill the username field by logged in persons username
+        P_form = profileupdateform(instance=request.user)
+
+
+    context = {
+        
+        'u_form': u_form,
+        'p_form': P_form
+    }
+    return render(request, 'users/profile.html',context)

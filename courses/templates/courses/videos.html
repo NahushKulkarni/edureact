@@ -1,14 +1,13 @@
 {% extends "courses/base.html" %}
 {% block content %}
-    <div class="container-fluid">
-      {% for video in videos %}
+    <div class="container">
         <center>
           <div class="embed-responsive embed-responsive-16by9 w-50">
             <video controls controlsList="nodownload" oncontextmenu="return false;" autoplay>
               <source class="embed-responsive-item" src="{{video.video_file.url}}" allowfullscreen type="video/mp4">
               Your browser does not support HTML video.
             </video>
-          </div>
+          </div>            
         </center>
         <br>
         <div class="container">
@@ -25,6 +24,12 @@
         </div>
         </div>
         <br>
-      {% endfor %}
+        <ul class="list-group rounded" style="background-color:rgba(50,50,50,0.9);width:100%;">
+          {% for videos in courses %}
+            <li class="list-group-item text-light zoom rounded" style="background-color:rgba(50,50,50,0.9);width:100%;">
+              <h5 class="card-title text-left">{{videos.video_title}}</h5>
+            </li>
+          {% endfor %}
+        </ul>
     </div>
 {% endblock content %}
