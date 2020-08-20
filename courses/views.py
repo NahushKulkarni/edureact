@@ -17,9 +17,9 @@ def CoursesView(request):
         'courses':Course.objects.all(),
     }
     return render(request,"courses/courses.html",context)
-class Home(ListView):
+class Home(LoginRequiredMixin,ListView):
     model = Course
     context_object_name = 'courses'
     template_name = 'courses/home.html'
     #def get_queryset(self):
-    #    user = get_object_or_404(Teacher ,user=self.kwargs.get('user'))
+    #   username = get_object_or_404(Student ,username=self.kwargs.get('username')
